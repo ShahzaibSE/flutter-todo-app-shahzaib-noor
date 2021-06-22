@@ -138,12 +138,21 @@ class _ToDoState extends State<ToDo> {
                 ),
                 title: Stack(
                   children: <Widget>[
-                    Container(
-                      child: Align(
-                        child: Text('New Task'),
-                        alignment: Alignment.center
+                    AppBar(
+                      title: Text('New Task', style: TextStyle(
+                        fontWeight: FontWeight.bold
+                      )),
+                      backgroundColor: Colors.redAccent,
+                      automaticallyImplyLeading: false,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                    )
+                    ),
+                    // Container(
+                    //   child: Align(
+                    //     child: Text('New Task'),
+                    //     alignment: Alignment.center
+                    //   ),
                   ]
                 ),
                 content: Container(
@@ -164,7 +173,9 @@ class _ToDoState extends State<ToDo> {
                         ToDoDB.todos.add(ToDoDB(output));
                       });
                       Navigator.of(context).pop();
-                    }, child: Text('Create')),
+                    }, child: Text('Create', style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ))),
                     alignment: Alignment.center,
                   )
                  ]) 

@@ -133,7 +133,19 @@ class _ToDoState extends State<ToDo> {
           onPressed: (){
             showDialog(context: context, builder: (context){
               return AlertDialog(
-                title: Text('New Task'),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                title: Stack(
+                  children: <Widget>[
+                    Container(
+                      child: Align(
+                        child: Text('New Task'),
+                        alignment: Alignment.center
+                      ),
+                    )
+                  ]
+                ),
                 content: Container(
                   child: TextField(
                     onChanged: (value){
@@ -151,6 +163,7 @@ class _ToDoState extends State<ToDo> {
                       setState((){
                         ToDoDB.todos.add(ToDoDB(output));
                       });
+                      Navigator.of(context).pop();
                     }, child: Text('Create')),
                     alignment: Alignment.center,
                   )
